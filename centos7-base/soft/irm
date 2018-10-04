@@ -1,0 +1,35 @@
+#! /bin/bash
+
+argc=$#
+recyle_path=$HOME/.RecycleBin
+time_stamp=$(date +"%Y%m%d%H%M%S")
+
+if [ ! -d ${recyle_path} ];then
+    mkdir ${recyle_path}
+fi
+
+#"$1"  为了避免文件名中有空格的情况
+for ((i = 0; i < $argc ; ++i));do
+    # 获取要删除的文件名
+    tg=$(echo $1 | awk -F "[/]" '{ if ($0~/\/$/) { print $(NF-1) } else { print $(NF) }}')
+    if [ -d "$1" ];then
+    # 如果是目录
+        mv "$1" "${recyle_path}/${time_stamp}.${tg}"
+    else
+    # 如果是不是目录
+        if [ -f "$1" ];then
+        # 如果是文件
+            size=$(ls -l "$1" | awk '{print $5}') # byte
+            if [ ${size} -lt $((200*1024*1024)) ] && [ ${size} -gt 0 ] && [ ! -L "$1" ];then
+            # 大于0MB，小于200MB
+                mv "$1" "${recyle_path}/${time_stamp}.${tg}"
+            else
+                /bin/rm "$1" # 文件过大直接删除
+            fi
+        else
+        # 不是目录、不是文件直接删除
+            /bin/rm "$1"
+        fi
+    fi
+    shift
+done
