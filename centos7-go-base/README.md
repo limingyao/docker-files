@@ -1,2 +1,2 @@
-### jdk download url
+### go download url
 > https://golang.org/dl/

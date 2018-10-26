@@ -35,7 +35,8 @@ RUN mkdir -p /root/.pip && cp $TMP/pip/pip.conf /root/.pip && python $TMP/pip/ge
 RUN pip install virtualenv virtualenvwrapper \\
 && echo -e "\n\nexport WORKON_HOME=\\\$HOME/.virtualenvs" >> /etc/profile \\
 && echo "source /usr/bin/virtualenvwrapper.sh" >> /etc/profile \\
-&& echo "export LESSCHARSET=utf-8" >> /etc/profile
+&& echo "export LESSCHARSET=utf-8" >> /etc/profile \\
+&& echo "export LC_ALL=C" >> /etc/profile
 
 # for supervisor
 RUN pip install meld3==1.0.2 supervisor==3.3.2
