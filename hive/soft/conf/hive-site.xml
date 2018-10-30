@@ -1,0 +1,33 @@
+<?xml version="1.0"?>  
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>  
+
+<configuration>  
+    <property>  
+        <name>javax.jdo.option.ConnectionURL</name>  
+        <value>jdbc:derby:;databaseName=/data/hive/metastore_db;create=true</value>
+    </property>  
+    <property>  
+        <name>javax.jdo.option.ConnectionDriverName</name>  
+        <value>org.apache.derby.jdbc.EmbeddedDriver</value>  
+    </property>  
+    <property>  
+        <name>hive.metastore.local</name>  
+        <value>true</value>  
+    </property>  
+    <property>  
+        <name>hive.metastore.warehouse.dir</name>  
+        <value>/hive1.2/warehouse</value>  
+    </property>
+    <property>
+        <name>hive.exec.local.scratchdir</name>
+        <value>/data/hive/exec</value>
+    </property>
+    <property>
+        <name>hive.downloaded.resources.dir</name>
+        <value>/data/hive/downloadedsource</value>
+    </property>
+    <property>
+        <name>hive.hwi.war.file</name>
+        <value>lib/hive-hwi-1.2.2.war</value>
+    </property>
+</configuration> 
