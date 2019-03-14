@@ -5,6 +5,9 @@
 ### tez download url
 > https://mirrors.tuna.tsinghua.edu.cn/apache/tez/0.9.1/apache-tez-0.9.1-bin.tar.gz
 
+### tomcat download url
+> http://mirrors.tuna.tsinghua.edu.cn/apache/tomcat/tomcat-9/v9.0.16/bin/apache-tomcat-9.0.16.tar.gz
+
 ### how to use
   + su work
   + rsawrapper

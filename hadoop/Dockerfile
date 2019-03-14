@@ -14,6 +14,16 @@ RUN mkdir -p /opt/tez && cd /opt/tez \
 && mv /opt/tez/apache-tez-0.9.1-bin /opt/tez/tez-0.9.1 \
 && rm apache-tez-0.9.1-bin.tar.gz
 
+RUN mkdir -p /opt/tomcat && cd /opt/tomcat \
+&& wget http://192.168.188.157:15973/soft/apache-tomcat-9.0.16.tar.gz \
+&& tar zxvf apache-tomcat-9.0.16.tar.gz \
+&& mv /opt/tomcat/apache-tomcat-9.0.16 /opt/tomcat/tomcat-9.0.16 \
+&& mkdir /opt/tomcat/tomcat-9.0.16/webapps/tez-ui \
+&& cp /opt/tez/tez-0.9.1/tez-ui-0.9.1.war /opt/tomcat/tomcat-9.0.16/webapps/tez-ui \
+&& rm apache-tomcat-9.0.16.tar.gz \
+&& cd /opt/tomcat/tomcat-9.0.16/webapps/tez-ui && unzip tez-ui-0.9.1.war && rm tez-ui-0.9.1.war \
+&& chown -R work.work /opt/tomcat/tomcat-9.0.16
+
 RUN mv /opt/hadoop/hadoop-2.7.5/etc/hadoop/core-site.xml /opt/hadoop/hadoop-2.7.5/etc/hadoop/core-site.xml.bak \
 && mv /opt/hadoop/hadoop-2.7.5/etc/hadoop/hdfs-site.xml /opt/hadoop/hadoop-2.7.5/etc/hadoop/hdfs-site.xml.bak \
 && mv /opt/hadoop/hadoop-2.7.5/etc/hadoop/yarn-site.xml /opt/hadoop/hadoop-2.7.5/etc/hadoop/yarn-site.xml.bak \
