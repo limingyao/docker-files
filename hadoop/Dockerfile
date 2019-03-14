@@ -2,10 +2,17 @@ FROM limingyao/centos7-jdk8-base:latest
 MAINTAINER mingyaoli@tencent.com
 
 RUN mkdir -p /opt/hadoop && cd /opt/hadoop \
-&& wget http://192.168.188.146:15973/soft/hadoop-2.7.5.tar.gz \
+&& wget http://192.168.188.157:15973/soft/hadoop-2.7.5.tar.gz \
 && tar zxvf hadoop-2.7.5.tar.gz \
 && chown -R work.work /opt/hadoop/hadoop-* \
 && rm hadoop-2.7.5.tar.gz
+
+RUN mkdir -p /opt/tez && cd /opt/tez \
+&& wget http://192.168.188.157:15973/soft/apache-tez-0.9.1-bin.tar.gz \
+&& tar zxvf apache-tez-0.9.1-bin.tar.gz \
+&& chown -R work.work /opt/tez/apache-tez-0.9.1-bin \
+&& mv /opt/tez/apache-tez-0.9.1-bin /opt/tez/tez-0.9.1 \
+&& rm apache-tez-0.9.1-bin.tar.gz
 
 RUN mv /opt/hadoop/hadoop-2.7.5/etc/hadoop/core-site.xml /opt/hadoop/hadoop-2.7.5/etc/hadoop/core-site.xml.bak \
 && mv /opt/hadoop/hadoop-2.7.5/etc/hadoop/hdfs-site.xml /opt/hadoop/hadoop-2.7.5/etc/hadoop/hdfs-site.xml.bak \
@@ -16,6 +23,7 @@ ADD ./soft/conf/core-site.xml /opt/hadoop/hadoop-2.7.5/etc/hadoop/
 ADD ./soft/conf/hdfs-site.xml /opt/hadoop/hadoop-2.7.5/etc/hadoop/
 ADD ./soft/conf/mapred-site.xml /opt/hadoop/hadoop-2.7.5/etc/hadoop/
 ADD ./soft/conf/yarn-site.xml /opt/hadoop/hadoop-2.7.5/etc/hadoop/
+ADD ./soft/conf/tez-site.xml /opt/hadoop/hadoop-2.7.5/etc/hadoop/
 ADD ./soft/hadoop.sh /etc/profile.d/
 
 RUN mkdir -p /data/hadoop && chown -R work.work /data/hadoop \
