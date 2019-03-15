@@ -11,9 +11,10 @@
   + hdfs dfs -mkdir -p /hive1.2/warehouse
   + hdfs dfs -mkdir -p /hive1.2/logs
   + hdfs dfs -mkdir -p /hive1.2/tmp
+  + hive --service metastore
+  + hive --service hiveserver2
+  + hive --service hwi
   + hive
   + hiveserver2
     + hive jdbc
     + beeline
-  + hive --service hwi
-  + hive --service metastore

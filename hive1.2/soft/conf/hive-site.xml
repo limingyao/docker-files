@@ -2,14 +2,32 @@
 <?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
 
 <configuration>
-    <property>
+    <!--<property>
         <name>javax.jdo.option.ConnectionURL</name>
         <value>jdbc:derby:;databaseName=/data/hive/metastore_db;create=true</value>
     </property>
     <property>
         <name>javax.jdo.option.ConnectionDriverName</name>
         <value>org.apache.derby.jdbc.EmbeddedDriver</value>
+    </property>-->
+
+    <property>
+        <name>javax.jdo.option.ConnectionURL</name>
+        <value>jdbc:mysql://mysql:3306/hive1@2?userSSL=false&amp;createDatabaseIfNotExist=true&amp;characterEncoding=UTF-8&amp;serverTimezone=GMT%2B8</value>
     </property>
+    <property>
+        <name>javax.jdo.option.ConnectionDriverName</name>
+        <value>com.mysql.cj.jdbc.Driver</value>
+    </property>
+    <property>
+        <name>javax.jdo.option.ConnectionUserName</name>
+        <value>root</value>
+    </property>
+    <property>
+        <name>javax.jdo.option.ConnectionPassword</name>
+        <value>root</value>
+    </property>
+
     <property>
         <name>hive.metastore.warehouse.dir</name>
         <value>/hive1.2/warehouse</value>
@@ -26,8 +44,9 @@
         <name>hive.hwi.war.file</name>
         <value>lib/hive-hwi-1.2.2.war</value>
     </property>
+
     <property>
         <name>hive.metastore.uris</name>
-        <value>thrift://master:9083</value>
+        <value>thrift://hive:9083</value>
     </property>
 </configuration> 
