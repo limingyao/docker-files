@@ -16,3 +16,4 @@
     + hive jdbc
     + beeline
   + hive --service hwi
+  + hive --service metastore
