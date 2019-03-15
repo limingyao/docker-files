@@ -21,6 +21,6 @@
   + hdfs dfs -mkdir /user/work
   + hdfs dfs -put etc/hadoop input
   + hdfs dfs -mkdir /user/tez
-  + hdfs dfs -put tez-0.9.1/share/tez.tar.gz /user/tez
   + hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-2.7.5.jar grep input output 'dfs[a-z.]+'
+  + hdfs dfs -put tez-0.9.1/share/tez.tar.gz /user/tez
   + hadoop jar tez-examples-0.9.1.jar orderedwordcount /input /output2

@@ -29,6 +29,7 @@ RUN mkdir -p /opt/tez && cd /opt/tez \\
 && tar zxvf apache-tez-0.9.1-bin.tar.gz \\
 && chown -R work.work /opt/tez/apache-tez-0.9.1-bin \\
 && mv /opt/tez/apache-tez-0.9.1-bin /opt/tez/tez-0.9.1 \\
+&& rm -f /opt/tez/tez-0.9.1/lib/slf4j-* \\
 && rm apache-tez-0.9.1-bin.tar.gz
 
 RUN mkdir -p /opt/tomcat && cd /opt/tomcat \\
