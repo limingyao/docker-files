@@ -17,6 +17,7 @@
     + hive --service hiveserver2
     + hive jdbc
     + beeline
+      + !connect jdbc:hive2://
   + Hive Web Interface
     + hive --service hwi
     + http://hive:9999/hwi

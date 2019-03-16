@@ -13,7 +13,7 @@
 
     <property>
         <name>javax.jdo.option.ConnectionURL</name>
-        <value>jdbc:mysql://mysql:3306/hive1?createDatabaseIfNotExist=true&amp;characterEncoding=UTF-8</value>
+        <value>jdbc:mysql://mysql:3306/hive1?userSSL=false&amp;createDatabaseIfNotExist=true&amp;characterEncoding=UTF-8</value>
     </property>
     <property>
         <name>javax.jdo.option.ConnectionDriverName</name>
@@ -49,4 +49,13 @@
         <name>hive.metastore.uris</name>
         <value>thrift://hive:9083</value>
     </property>
+
+    <property>
+        <name>javax.jdo.option.ConnectionUserName</name>
+        <value>root</value>
+    </property>
+    <property>
+        <name>javax.jdo.option.ConnectionPassword</name>
+        <value>root</value>
+    </property> 
 </configuration> 

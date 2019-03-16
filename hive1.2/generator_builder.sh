@@ -20,10 +20,13 @@ MAINTAINER mingyaoli@tencent.com
 
 RUN mkdir -p /opt/hive && cd /opt/hive \\
 && wget http://$ip:$port/soft/apache-hive-1.2.2-bin.tar.gz \\
-&& tar zxvf apache-hive-1.2.2-bin.tar.gz \\
+&& tar zxvf apache-hive-1.2.2-bin.tar.gz && rm apache-hive-1.2.2-bin.tar.gz \\
 && mv apache-hive-1.2.2-bin hive-1.2.2 \\
 && chown -R work.work /opt/hive/hive-* \\
-&& rm apache-hive-1.2.2-bin.tar.gz
+&& cd /opt/hive/hive-*/conf && cp beeline-log4j.properties.template beeline-log4j.properties \\
+&& cp hive-exec-log4j.properties.template hive-exec-log4j.properties \\
+&& cp hive-log4j.properties.template hive-log4j.properties
+
 
 ADD ./soft/conf/hive-site.xml /opt/hive/hive-1.2.2/conf/
 ADD ./soft/hive-hwi-1.2.2.war /opt/hive/hive-1.2.2/lib/
