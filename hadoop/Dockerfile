@@ -2,21 +2,23 @@ FROM limingyao/centos7-jdk8-base:latest
 MAINTAINER mingyaoli@tencent.com
 
 RUN mkdir -p /opt/hadoop && cd /opt/hadoop \
-&& wget http://192.168.188.157:15973/soft/hadoop-2.7.5.tar.gz \
+&& wget http://192.168.1.202:15973/soft/hadoop-2.7.5.tar.gz \
 && tar zxvf hadoop-2.7.5.tar.gz \
 && chown -R work.work /opt/hadoop/hadoop-* \
 && rm hadoop-2.7.5.tar.gz
 
 RUN mkdir -p /opt/tez && cd /opt/tez \
-&& wget http://192.168.188.157:15973/soft/apache-tez-0.9.1-bin.tar.gz \
+&& wget http://192.168.1.202:15973/soft/apache-tez-0.9.1-bin.tar.gz \
 && tar zxvf apache-tez-0.9.1-bin.tar.gz \
 && chown -R work.work /opt/tez/apache-tez-0.9.1-bin \
 && mv /opt/tez/apache-tez-0.9.1-bin /opt/tez/tez-0.9.1 \
 && rm -f /opt/tez/tez-0.9.1/lib/slf4j-* \
+&& cp /opt/hadoop/hadoop-2.7.5/share/hadoop/mapreduce/hadoop-mapreduce-client-co* /opt/tez/tez-0.9.1/lib/ \
+&& rm /opt/tez/tez-0.9.1/lib/hadoop-mapreduce-client-co*-2.7.0.jar \
 && rm apache-tez-0.9.1-bin.tar.gz
 
 RUN mkdir -p /opt/tomcat && cd /opt/tomcat \
-&& wget http://192.168.188.157:15973/soft/apache-tomcat-9.0.16.tar.gz \
+&& wget http://192.168.1.202:15973/soft/apache-tomcat-9.0.16.tar.gz \
 && tar zxvf apache-tomcat-9.0.16.tar.gz \
 && mv /opt/tomcat/apache-tomcat-9.0.16 /opt/tomcat/tomcat-9.0.16 \
 && mkdir /opt/tomcat/tomcat-9.0.16/webapps/tez-ui \
