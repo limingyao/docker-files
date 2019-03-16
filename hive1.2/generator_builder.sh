@@ -2,7 +2,7 @@
 
 if [ ! -f "./soft/apache-hive-1.2.2-bin.tar.gz" ]; then
     echo "./soft/apache-hive-1.2.2-bin.tar.gz not exist"
-    echo "please download apache-hive-1.2.2-bin.tar.gz from https://www.apache.org/dyn/closer.cgi/hbase/"
+    echo "please download apache-hive-1.2.2-bin.tar.gz from http://www.apache.org/dyn/closer.cgi/hive/"
     exit 1
 fi
 
