@@ -30,7 +30,7 @@ ADD ./soft/hive-hwi-1.2.2.war /opt/hive/hive-1.2.2/lib/
 ADD ./soft/jasper-compiler-5.5.23.jar /opt/hive/hive-1.2.2/lib/
 ADD ./soft/jasper-runtime-5.5.23.jar /opt/hive/hive-1.2.2/lib/
 ADD ./soft/commons-el-1.0.jar /opt/hive/hive-1.2.2/lib/
-ADD ./soft/mysql-connector-java-8.0.15.jar /opt/hive/hive-1.2.2/lib/
+ADD ./soft/mysql-connector-java-5.1.47.jar /opt/hive/hive-1.2.2/lib/
 ADD ./soft/hive.sh /etc/profile.d/
 
 RUN mkdir -p /data/hive/exec && mkdir -p /data/hive/downloadedsource \\
