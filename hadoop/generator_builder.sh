@@ -30,6 +30,8 @@ RUN mkdir -p /opt/tez && cd /opt/tez \\
 && chown -R work.work /opt/tez/apache-tez-0.9.1-bin \\
 && mv /opt/tez/apache-tez-0.9.1-bin /opt/tez/tez-0.9.1 \\
 && rm -f /opt/tez/tez-0.9.1/lib/slf4j-* \\
+&& cp /opt/hadoop/hadoop-2.7.5/share/hadoop/mapreduce/hadoop-mapreduce-client-co* /opt/tez/tez-0.9.1/lib/ \\
+&& rm /opt/tez/tez-0.9.1/lib/hadoop-mapreduce-client-co*-2.7.0.jar \\
 && rm apache-tez-0.9.1-bin.tar.gz
 
 RUN mkdir -p /opt/tomcat && cd /opt/tomcat \\
