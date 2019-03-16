@@ -23,6 +23,7 @@ RUN mkdir -p /opt/spark && cd /opt/spark \\
 && tar zxvf spark-2.2.3-bin-hadoop2.7.tgz && rm spark-2.2.3-bin-hadoop2.7.tgz \\
 && mv spark-2.2.3-bin-hadoop2.7 spark-2.2.3 \\
 && chown -R work.work /opt/spark/spark-* \\
+&& rm /opt/spark/spark-2.2.3/jars/slf4j-* \\
 && cd /opt/spark/spark-*/conf \\
 && cp spark-env.sh.template spark-env.sh \\
 && cp spark-defaults.conf.template spark-defaults.conf \\
@@ -36,7 +37,7 @@ ADD ./soft/spark.sh /etc/profile.d/
 RUN mkdir -p /data/spark && chown -R work.work /data/spark \\
 && chown work.work /etc/profile.d/spark.sh
 
-EXPOSE 4040 7077 8080
+EXPOSE 4040 6066 7077 8080 8081 18080
 
 EOF
 
