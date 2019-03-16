@@ -55,6 +55,9 @@ ADD ./soft/tmux.conf /root/.tmux.conf
 ADD ./soft/irm /usr/local/sbin
 ADD ./soft/rsawrapper /usr/bin/
 RUN rm -rf /tmp/tmp
+RUN echo "set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936" >> /etc/vimrc \
+&& echo "set termencoding=utf-8" >> /etc/vimrc \
+&& echo "set encoding=utf-8" >> /etc/vimrc
 
 EXPOSE 22 8801
 CMD ["/usr/bin/supervisord","-n"]
