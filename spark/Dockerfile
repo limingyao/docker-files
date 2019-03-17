@@ -2,7 +2,7 @@ FROM limingyao/hadoop2.7:latest
 MAINTAINER mingyaoli@tencent.com
 
 RUN mkdir -p /opt/spark && cd /opt/spark \
-&& wget http://192.168.188.157:15973/soft/spark-2.2.3-bin-hadoop2.7.tgz \
+&& wget http://192.168.1.202:15973/soft/spark-2.2.3-bin-hadoop2.7.tgz \
 && tar zxvf spark-2.2.3-bin-hadoop2.7.tgz && rm spark-2.2.3-bin-hadoop2.7.tgz \
 && mv spark-2.2.3-bin-hadoop2.7 spark-2.2.3 \
 && rm /opt/spark/spark-2.2.3/jars/slf4j-* \
