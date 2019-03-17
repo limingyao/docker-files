@@ -58,7 +58,8 @@ RUN mkdir -p /data/hadoop && chown -R work.work /data/hadoop \\
 && chown work.work /opt/hadoop/hadoop-*/etc/hadoop/core-site.xml \\
 && chown work.work /opt/hadoop/hadoop-*/etc/hadoop/hdfs-site.xml \\
 && chown work.work /opt/hadoop/hadoop-*/etc/hadoop/mapred-site.xml \\
-&& chown work.work /opt/hadoop/hadoop-*/etc/hadoop/yarn-site.xml
+&& chown work.work /opt/hadoop/hadoop-*/etc/hadoop/yarn-site.xml \\
+&& chown work.work /opt/hadoop/hadoop-*/etc/hadoop/tez-site.xml
 
 EXPOSE 8020 8042 8088 19888 50070
 
