@@ -2,7 +2,7 @@ FROM limingyao/hadoop2.7:latest
 MAINTAINER mingyaoli@tencent.com
 
 RUN mkdir -p /opt/hive && cd /opt/hive \
-&& wget http://192.168.188.157:15973/soft/apache-hive-1.2.2-bin.tar.gz \
+&& wget http://192.168.1.202:15973/soft/apache-hive-1.2.2-bin.tar.gz \
 && tar zxvf apache-hive-1.2.2-bin.tar.gz && rm apache-hive-1.2.2-bin.tar.gz \
 && mv apache-hive-1.2.2-bin hive-1.2.2 \
 && cd /opt/hive/hive-*/conf && cp beeline-log4j.properties.template beeline-log4j.properties \
